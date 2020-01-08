@@ -1,8 +1,8 @@
-# %% md
+# %% [md]
 # # Dunder methods
 # Start with a double underscore
 
-# %% md
+# %% [md]
 # # Constructors
 # There are two methods invoked when you create an object.
 # * __new__ 
@@ -22,7 +22,7 @@ class Example():
 e = Example()
 print(f'Value {e.some_variable}')
 
-# %% md
+# %% [md]
 # # Constructors & Inheritance
 # If you don't initiatlize your base class it's
 # dunder init will not run.  Any initialization
@@ -44,7 +44,7 @@ d = Derived()
 print(f'Example Variable {d.example_variable}')
 print(f'Derived Variable {d.derived_variable}')
 
-# %% md
+# %% [md]
 # # Super
 # You can initialize your base class with a call to super().__init__()
 
@@ -62,5 +62,26 @@ class Derived(Example):
 
 # %% codecell
 d = Derived()
+print(f'Example Variable {d.example_variable}')
+print(f'Derived Variable {d.derived_variable}')
+
+# %% [md]
+# # Super
+# You can pass parameters as defined in __init__ to super's dunder init (constructor)
+
+# %% codecell
+class Example():
+    def __init__(self, value):
+        print('Running Example Init')
+        self.example_variable = value
+
+class Derived(Example):
+    def __init__(self, value):
+        super().__init__(value ** 2)
+        print('Running Derived Init')
+        self.derived_variable = value
+        
+# %% codecell
+d = Derived(4)
 print(f'Example Variable {d.example_variable}')
 print(f'Derived Variable {d.derived_variable}')

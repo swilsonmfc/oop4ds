@@ -1,4 +1,4 @@
-# %% md
+# %% [md]
 # # Inheritance
 # In this inheritance example we want to design a set of functionality.
 # To accomplish that we'll build some classes that will
@@ -16,7 +16,7 @@
 # * PCA is a Model
 # * Pipelines are a serial list of Transforms or Models
 
-# %% md
+# %% [md]
 # # Learning Objects Fit
 
 # %% codecell
@@ -31,7 +31,7 @@ class Base():
     def fit(self, X, y):
         pass
 
-# %% md
+# %% [md]
 # # Transforms
 
 # %% codecell
@@ -57,7 +57,7 @@ class Normalize(BaseTransform):
     def transform(self, X):
         print('Transform Normalize')
 
-# %% md
+# %% [md]
 # # Models
 
 # %% codecell
@@ -92,7 +92,7 @@ class LogisticModel(BaseModel):
     def predict(self, X):
         print('Predict Logistic Model')
 
-# %% md
+# %% [md]
 # # Models that Transform
 
 # %% codecell
@@ -109,7 +109,7 @@ class PCA(BaseModel, BaseTransform):
     def predict(self, X):
         print('Predict PCA')
 
-# %% md
+# %% [md]
 # # Pipelines are Compositions
 
 # %% codecell
@@ -135,7 +135,7 @@ class Pipeline(Base):
             if isinstance(obj, BaseModel):
                 obj.predict(X)
 
-# %% md
+# %% [md]
 # Running a Pipeline
 
 # %% codecell

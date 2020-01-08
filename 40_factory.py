@@ -1,4 +1,4 @@
-# %% md
+# %% [md]
 # # Factory Pattern
 #
 
@@ -7,7 +7,7 @@ from abc import ABC
 from abc import abstractmethod
 
 
-# %% md
+# %% [md]
 # # Data Loading Classes
 
 # %% codecell 
@@ -42,7 +42,7 @@ class Reader():
             row = self.loader.read()
         return results
 
-# %% md
+# %% [md]
 # There are three different ways to read in our data
 # * CSV FlatFile
 # * JSON
@@ -74,7 +74,7 @@ loaderJSON.load()
 loaderDB = DatabaseLoader()
 loaderDB.load()
 
-# %% md
+# %% [md]
 # There are two versions of data formats
 # * V1
 # * V2
@@ -88,33 +88,33 @@ class DataVersion2():
     def map(self, d:dict):
         return (d['item'], d['customer'], d['quantity'])
     
-# %% md
+# %% [md]
 # # Creation Pattern
 # What's the best way to pick the loader you need at runtime?
 
-# %% md
+# %% [md]
 # ## Main Method
 # If we code a main method, we need to select the correct loader type
 # and the correct version.  Our unittests around the main method
 # would need to test all 6 paths in this example along with other duties in the main.
 
-# %% md
+# %% [md]
 # ## Factory Pattern
 
-class LoaderFactory():
+class ReaderFactory():
     def getReader(config):
         loader = None
         if config['loader'] == 'CSV':
             loader = CSVLoader()
         if config['loader'] == 'JSON':
-            loader JSONLoader()
+            loader = JSONLoader()
         if config['loader'] == 'DB':
-            loader DatabaseLoader()
+            loader = DatabaseLoader()
             
         version = None
         if config['version'] == 1:
-            version = Version1()
+            version = DataVersion1()
         if config['version'] == 2:
-            version = Version2()
+            version = DataVersion2()
         
         return Reader(loader=loader, version=version)

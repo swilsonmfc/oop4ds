@@ -1,4 +1,4 @@
-# %% md
+# %% [md]
 # # Abstract Base Classes
 # Abstract base classes enforce rules in inheritence
 
@@ -6,7 +6,7 @@
 from abc import ABC
 from abc import abstractmethod
 
-# %% md 
+# %% [md] 
 # # Abstract Base Class
 # * You can inherit from an ABC, but you can't create an instance of one
 # * It can define abstract methods, that derived classes must implment
@@ -27,7 +27,7 @@ class Vehicle(ABC):
 # %% codecell
 vehicle = Vehicle()
 
-# %% md
+# %% [md]
 # # Derived Classes
 
 class Car(Vehicle):
@@ -56,7 +56,7 @@ airplane = Airplane()
 airplane.move()
 airplane.park()
 
-# %% md
+# %% [md]
 # # Abstract Methods must have a concrete implementation
 # * Let's create a ship, with only move implemented
 # * We get an exception - park isn't implemented
@@ -71,7 +71,7 @@ class Ship(Vehicle):
 ship = Ship()
 
 
-# %% md
+# %% [md]
 # # Behavior in Abstract Classes
 # * Our Vehicle class keeps a speed int
 # * We can accelerate and stop
@@ -96,7 +96,7 @@ class Vehicle(ABC):
     def stop(self):
         self._speed = 0
         
-# %% md
+# %% [md]
 # # Derived Classes
 
 class Car(Vehicle):

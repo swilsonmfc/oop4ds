@@ -1,4 +1,4 @@
-# %% md
+# %% [md]
 # # Overview
 #
 # We cover how to model relationships and behaviors in this class.
@@ -8,7 +8,7 @@
 #
 # We model inheritance with classes and base classes.
 
-# %% md
+# %% [md]
 # # Example
 # Requirements:
 # * Dog is an Animal
@@ -18,7 +18,7 @@
 # * Cats meow
 # * Cats have 9 lives
 
-# %% md
+# %% [md]
 # ## Step 1 - Model Relationships
 # We would consider creating an Animal base class with two
 # derived classes, Dog and Cat.  Classes then form a heirarchical relationship.
@@ -39,7 +39,7 @@ class Cat(Animal):
     """
     pass
 
-# %% md
+# %% [md]
 # ## Step 2 - Model Behaviors
 # We define functions to model the sound behavior.  We place these functions
 # in the class heirarchy based on our requirements.
@@ -79,7 +79,7 @@ dog.sound()
 cat = Cat()
 cat.sound()
 
-# %% md
+# %% [md]
 # ## Step 3 - Model State
 # We use member variables to model state
 # * Cats have 9 lives
@@ -107,7 +107,7 @@ print(cat.lives)
 dog = Dog()
 print(dog.lives)
 
-# %% md
+# %% [md]
 # # Rethinking Lives
 # Rather than giving lives to cats we could improve this model.
 # We'll use a constructor to help!

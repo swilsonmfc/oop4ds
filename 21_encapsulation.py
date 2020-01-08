@@ -1,9 +1,9 @@
-# %% md
+# %% [md]
 # # Encapsulation
 # * Bundling of data with the methods that operate on that data
 # * Restricting direct access to some of an object's components
 
-# %% md
+# %% [md]
 # # Protected Methods
 # Use a single underscore to indicate that the method is not part of your API
 # and it should be treated as private.  Note, the compiler and interpreter do
@@ -22,7 +22,7 @@ b = Base()
 b.public_method()
 b._protected_method()
 
-# %% md
+# %% [md]
 # # Private Methods
 # Private methods are not accessible outside of the class
 
@@ -42,7 +42,7 @@ b = Base()
 b.public_method()
 b.__private_method()
 
-# %% md
+# %% [md]
 # # Private Methods and Derived Classes
 # Private methods are not accessible outside of the class
 
@@ -76,7 +76,7 @@ d = Derived()
 d.public_method()
 d.access_method()
 
-# %% md
+# %% [md]
 # # Protected Member Variables
 
 # %% codecell
@@ -90,7 +90,7 @@ p = ProtectedVariables('First', 'Last')
 print(p._firstName)
 print(p._lastName)
 
-# %% md
+# %% [md]
 # # Private Member Variables
 
 # %% codecell

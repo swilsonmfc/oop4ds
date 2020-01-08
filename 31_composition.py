@@ -1,4 +1,4 @@
-# %% md
+# %% [md]
 # # Overview
 #
 # We cover how to model relationships and behaviors in this class.
@@ -7,7 +7,7 @@
 #
 # We model inheritance with classes and base classes.
 
-# %% md
+# %% [md]
 # # Example
 # Requirements:
 # * Albums have Songs
@@ -18,7 +18,7 @@
 # * Albums that sell 100,000 copies are Gold
 
 
-# %% md
+# %% [md]
 # ## Step 1 - Model Entities
 # Tackle modeling the major actors in this system
 # * Album
@@ -39,7 +39,7 @@ class Artist():
 class Band():
     pass
 
-# %% md
+# %% [md]
 # ## Step 2 - Model Compositions
 # We assign variables to model compositions
 # * Albums have Songs

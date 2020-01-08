@@ -1,4 +1,4 @@
-# %% md
+# %% [md]
 # # Property
 # Properties are a clean way of hiding internal details in a convenient API friendly way
 
@@ -22,7 +22,7 @@ p.setName('Tom')
 print(p.getName())
     
 
-# %% md
+# %% [md]
 # # Property
 # * Properties sit atop a method
 # * The getter method has the @property annotation & uses the method name

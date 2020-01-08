@@ -1,9 +1,10 @@
-# %% md
+# %% [md]
 # # Dunders
 # In addition to constructors and initialization (__init__)
 # Dunders control several aspects of objects.
 # * str  = familiar output from print
 # * repr = debugging and formal representation
+# * print looks for __str__, then __repr__
 
 # %% codecell
 class Point:
@@ -15,11 +16,11 @@ class Point:
 
     # Called by repr(). Object information
     def __repr__(self):
-       return 'Point (%s, %s)' % (self.x, self.y)
+        return f'{self.__class__.__name__}, ({self.x}, {self.y})'
 
     # Called by str(). Readable formatting
     def __str__(self):
-       return '(%s, %s)' % (self.x, self.y)
+        return f'({self.x}, {self.y})'
 
 
 # %% codecell
@@ -33,7 +34,8 @@ print(p)
 # repr
 print(repr(p))
 
-# %% md
+
+# %% [md]
 # # Arithmetic Dunders
 # Special dunders implement arithmetic operations + - * /
 # * Plus : __add__
@@ -51,11 +53,11 @@ class Point:
 
     # Called by repr(). Object information
     def __repr__(self):
-       return 'Point (%s, %s)' % (self.x, self.y)
+        return f'{self.__class__.__name__}, ({self.x}, {self.y})'
 
     # Called by str(). Readable formatting
     def __str__(self):
-       return '(%s, %s)' % (self.x, self.y)
+        return f'({self.x}, {self.y})'
 
     # Adding Points
     def __add__(self, obj):
@@ -66,7 +68,7 @@ p1 = Point(5, 5)
 p2 = Point(10, 10)
 p1 + p2
 
-# %% md
+# %% [md]
 # # Equality Dunder
 # Special dunder for comparison of equals
 # * Equals : __eq__
@@ -83,11 +85,11 @@ class Point:
 
     # Called by repr(). Object information
     def __repr__(self):
-       return 'Point (%s, %s)' % (self.x, self.y)
+        return f'{self.__class__.__name__}, ({self.x}, {self.y})'
 
     # Called by str(). Readable formatting
     def __str__(self):
-       return '(%s, %s)' % (self.x, self.y)
+        return f'({self.x}, {self.y})'
 
     # Adding Points
     def __add__(self, obj):
@@ -110,7 +112,7 @@ p1 == p2
 p1 == p3
 p1 == p4
 
-# %% md
+# %% [md]
 # # Hash
 # Defines the hash key a dictionary uses
 # If you derive from Object, you will inherit the __hash__ implementation
@@ -145,11 +147,11 @@ class Point:
 
     # Called by repr(). Object information
     def __repr__(self):
-       return 'Point (%s, %s)' % (self._x, self._y)
+        return f'{self.__class__.__name__}, ({self.x}, {self.y})'
 
     # Called by str(). Readable formatting
     def __str__(self):
-       return '(%s, %s)' % (self._x, self._y)
+        return f'({self.x}, {self.y})'
 
     # Adding Points
     def __add__(self, obj):
@@ -175,7 +177,7 @@ d[Point(3, 3)]   = 'Trap'
 d[Point(10, 10)] = 'Ship'
 d
 
-# %% md
+# %% [md]
 # # With Block -- Context Managers
 # * The with block interacts with two dunders
 # * Entering a with block calls __enter__
@@ -194,11 +196,11 @@ class Point:
 
     # Called by repr(). Object information
     def __repr__(self):
-       return 'Point (%s, %s)' % (self._x, self._y)
+        return f'{self.__class__.__name__}, ({self.x}, {self.y})'
 
     # Called by str(). Readable formatting
     def __str__(self):
-       return '(%s, %s)' % (self._x, self._y)
+        return f'({self.x}, {self.y})'
 
     # Adding Points
     def __add__(self, obj):
@@ -228,7 +230,7 @@ class Point:
 with (Point(3, 3)) as pt:
     print('Using our Point')
 
-# %% md
+# %% [md]
 # # Call
 
 # %% codecell
@@ -241,11 +243,11 @@ class Point:
 
     # Called by repr(). Object information
     def __repr__(self):
-       return 'Point (%s, %s)' % (self._x, self._y)
+        return f'{self.__class__.__name__}, ({self.x}, {self.y})'
 
     # Called by str(). Readable formatting
     def __str__(self):
-       return '(%s, %s)' % (self._x, self._y)
+        return f'({self.x}, {self.y})'
 
     # Adding Points
     def __add__(self, obj):

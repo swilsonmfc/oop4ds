@@ -1,4 +1,4 @@
-# %% md
+# %% [md]
 # # Encapsulation - Instance, Class & Static Methods
 # Private methods are not accessible outside of the class
 
@@ -6,7 +6,7 @@
 class MyClass():
     pass
 
-# %% md
+# %% [md]
 # # Instance Methods
 
 # %% codecell
@@ -18,7 +18,7 @@ class MyClass():
 my = MyClass()
 my.instanceWork()
 
-# %% md
+# %% [md]
 # # Class Methods
 # To attach a method to a class, use the @classmethod annotation and
 # rather than self, use cls as the first parameter
@@ -34,7 +34,7 @@ class MyClass():
         print('Class Method - Work')
         print(cls)
 
-# %% md
+# %% [md]
 # You can call class methods using your reference to the class instance
 
 # %% codecell
@@ -42,13 +42,13 @@ my = MyClass()
 my.instanceWork()
 my.classWork()
 
-# %% md
+# %% [md]
 # You can also call class methods using the class name
 
 # %% codecell
 MyClass.classWork()
 
-# %% md
+# %% [md]
 # # Usage : Alternative Constructors
 # Class methods are great for creating alternative Constructors
 
@@ -79,7 +79,7 @@ c1.output()
 c2.output()
 c3.output()
 
-# %% md
+# %% [md]
 # # Static Methods
 # Convenient for grouping methods that logically make sense in a class
 # but do not require an object.  Helper methods are good candidates for
