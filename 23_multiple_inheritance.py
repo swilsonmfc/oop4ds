@@ -5,19 +5,26 @@
 # be remniscent of sklearn.
 #
 # Our requirements:
-# * Transformations are fit to data
-# * Transformations transform data
-# * Normalizing data is a transformation
-# * Models are fit to data
-# * Fitted Models predict given data
-# * Linear is a type of Model
-# * Logistic is a type of Model
-# * PCA is a Transformations
-# * PCA is a Model
-# * Pipelines are a serial list of Transforms or Models
+# * Transformations
+#   * Transformations are fit to data
+#   * Transformations transform data
+#   * Normalizing data is a transformation
+# * Models
+#   * Models are fit to data
+#   * Fitted Models predict given data
+#   * Linear is a type of Model
+#   * Logistic is a type of Model
+# * PCA
+#   * PCA is a Transformations
+#   * PCA is a Model
+# * Pipeline
+#   * Pipelines are a serial list of Transforms or Models
 
 # %% [md]
 # # Learning Objects Fit
+# * Transformatations are fit to data
+# * Models are fit to data
+# * Good candidate for a base class!
 
 # %% codecell
 class Base():
@@ -32,7 +39,10 @@ class Base():
         pass
 
 # %% [md]
-# # Transforms
+# # Transformations
+# * Transformations transform data
+# * Normalizing is a transformation
+# * Good candidate for an is - a (base - derived class)
 
 # %% codecell
 class BaseTransform(Base):
@@ -59,6 +69,10 @@ class Normalize(BaseTransform):
 
 # %% [md]
 # # Models
+# * Fitted models can create predictions
+# * Logitic is a model
+# * Linear is a model
+# * Another good candidate for an is - a (base - derived class)
 
 # %% codecell
 class BaseModel(Base):
@@ -93,7 +107,11 @@ class LogisticModel(BaseModel):
         print('Predict Logistic Model')
 
 # %% [md]
-# # Models that Transform
+# # PCA
+# * Models that Transform
+# * Good candidate for Multiple Inheritance
+# * PCA is a Model
+# * PCA is a Transformer
 
 # %% codecell
 class PCA(BaseModel, BaseTransform):
@@ -110,7 +128,12 @@ class PCA(BaseModel, BaseTransform):
         print('Predict PCA')
 
 # %% [md]
-# # Pipelines are Compositions
+# # Pipelines are Collection
+# * We want to add items to the pipeline
+# * We'd like to fit the data pipeline
+# * We'd like to transform the data pipeline
+# * We'd like to make a prediction
+# * Good plan to wrap a list with fit, transform and predict
 
 # %% codecell
 class Pipeline(Base):

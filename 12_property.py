@@ -2,7 +2,23 @@
 # # Property
 # Properties are a clean way of hiding internal details in a convenient API friendly way
 
-# # Functional Gat / Set
+# %% [md]
+# # Simple Approach
+# * As a user of the class, can I change it?
+# * What happens if I do?
+# * Are there any rules about changing it?
+# * The simple approach lacks expressiveness
+
+# %% codecell
+class Person():
+    name = 'my name'
+
+# %% [md]
+# # Functional Get / Set
+# * I know more about this with functions fronting the variable
+# * I know I can't direcltly access it (double underscore performs a rewrite)
+# * The method gives me an opportunity to inject any business logic I need
+    
 # %% codecell
 class Person():
     def __init__(self):

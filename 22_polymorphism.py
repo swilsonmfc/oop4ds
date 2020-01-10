@@ -74,7 +74,7 @@ b.move()
 s = Sloth()
 s.move()
 
-# %% md
+# %% [md]
 # # Recall Aminals, Dogs & Cats
 
 # %% codecell
@@ -96,7 +96,7 @@ class Cat(Animal):
     def sound(self):
         return "Meow"
 
-# %% md
+# %% [md]
 # # Refactor Aminals, Dogs & Cats
 # We want to push the definition of sound into our base class since it 
 # pertains to both cats and dogs (and presumably any animal)

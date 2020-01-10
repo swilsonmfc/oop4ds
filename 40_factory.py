@@ -1,6 +1,12 @@
 # %% [md]
 # # Factory Pattern
-#
+# * Factory is a creational pattern
+# * We use it when we want to control the construction & initialization of objects
+# * In this example:
+#   * We have a Reader that is "complicated"
+#   * It has to read from different types of sources
+#   * The sources may have different versions of the data
+#   * We want to hide the complexity of setting up reading
 
 # %% codecell
 from abc import ABC
@@ -101,8 +107,9 @@ class DataVersion2():
 # %% [md]
 # ## Factory Pattern
 
+# %% codecell
 class ReaderFactory():
-    def getReader(config):
+    def getReader(self, config):
         loader = None
         if config['loader'] == 'CSV':
             loader = CSVLoader()
@@ -118,3 +125,9 @@ class ReaderFactory():
             version = DataVersion2()
         
         return Reader(loader=loader, version=version)
+    
+# %% codecell
+config = {'loader':'DB', 'version':2}
+factory = ReaderFactory()
+reader = factory.getReader(config)
+reader.read()

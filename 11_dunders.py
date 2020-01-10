@@ -1,14 +1,17 @@
 # %% [md]
+# # Dunders
+# * Named for the double underscore surrounding the method
+# * These methods affect how your classes function and respond
 
 # %% [md]
 # # Constructors
 # There are two methods invoked when you create an object.
 # * __new__ 
 # * __init__
-# New creates an object in memory and init gives you an opportunity to initiatize
-# The object before handing it to a client.  It is relatively uncommon to override
-# New, but there are some patterns that can take advantage of this 2 method contruction.
-# Far more often, you will implement __init__.
+# * New creates an object in memory
+# * Init gives you an opportunity to initiatize the object before handing it to a client.  
+# * It is relatively uncommon to override new
+# * Frequently, you will implement __init__.
 
 # %% codecell
 class Example():
@@ -20,7 +23,7 @@ class Example():
 e = Example()
 print(f'Value {e.some_variable}')
 
-# # Dunders
+# # Strings and Representing
 # In addition to constructors and initialization (__init__)
 # Dunders control several aspects of objects.
 # * str  = familiar output from print
@@ -149,6 +152,7 @@ d = {}
 p1 = Point(5, 5)
 d[p1] = 'Treasure'
 
+# %% codecell
 class PointFromObject(object):
     pass
 
@@ -168,11 +172,11 @@ class Point:
 
     # Called by repr(). Object information
     def __repr__(self):
-        return f'{self.__class__.__name__}, ({self.x}, {self.y})'
+        return f'{self.__class__.__name__}, ({self._x}, {self._y})'
 
     # Called by str(). Readable formatting
     def __str__(self):
-        return f'({self.x}, {self.y})'
+        return f'({self._x}, {self._y})'
 
     # Adding Points
     def __add__(self, obj):
@@ -253,7 +257,8 @@ with (Point(3, 3)) as pt:
 
 # %% [md]
 # # Call
-
+# * Give our class instance a method
+    
 # %% codecell
 class Point:
 

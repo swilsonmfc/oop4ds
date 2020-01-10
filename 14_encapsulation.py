@@ -1,7 +1,11 @@
 # %% [md]
 # # Encapsulation
+# * Co-locate state & behavior & Hide details
 # * Bundling of data with the methods that operate on that data
 # * Restricting direct access to some of an object's components
+# * Two Approaches
+#   * Protected - Convention
+#   * Private - Compiler
 
 # %% [md]
 # # Protected Methods
@@ -41,40 +45,6 @@ class Derived(Base):
 b = Base()
 b.public_method()
 b.__private_method()
-
-# %% [md]
-# # Private Methods and Derived Classes
-# Private methods are not accessible outside of the class
-
-# %% codecell
-d = Derived()
-d.public_method()
-d.__private_method()
-
-# # Private Methods Within Class
-# Private
-# %% codecell
-class Base():
-    def public_method(self):
-        print('public')
-
-    def __private_method(self):
-        print('private')
-
-    def access_method(self):
-        self.__private_method()
-
-class Derived(Base):
-    pass
-
-# %% codecell
-b = Base()
-b.public_method()
-b.access_method()
-
-d = Derived()
-d.public_method()
-d.access_method()
 
 # %% [md]
 # # Protected Member Variables

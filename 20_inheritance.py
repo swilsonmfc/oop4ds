@@ -19,8 +19,10 @@
 
 # %% [md]
 # ## Step 1 - Model Relationships
-# We would consider creating an Animal base class with two
-# derived classes, Dog and Cat.  Classes then form a heirarchical relationship.
+# * We would consider creating an Animal base class with two derived classes, Dog and Cat.  
+# * Classes then form a heirarchical relationship.
+# * Dog is an Animal
+# * Cat is an Animal
 
 # %% codecell
 class Animal():
@@ -42,9 +44,9 @@ class Cat(Animal):
 # ## Step 2 - Model Behaviors
 # We define functions to model the sound behavior.  We place these functions
 # in the class heirarchy based on our requirements.
-# * All Animals make a sound
 # * Cats meow
 # * Dogs bark
+# * Note:  We'll build on this simple model over the next few notebooks 
 
 # %% codecell
 class Animal():
@@ -77,6 +79,7 @@ print(cat.sound())
 # ## Step 3 - Model State
 # We use member variables to model state
 # * Cats have 9 lives
+# * Seems wrong for dogs not to have lives
 
 # %% codecell
 class Animal():
@@ -98,14 +101,18 @@ class Cat(Animal):
 
 # %% codecell
 cat = Cat()
-print(cat.lives)
+print(f'Cat has {cat.lives} lives')
 
 dog = Dog()
-print(dog.lives)
+print(f'Dog has {dog.lives} lives')
 
 # %% [md]
 # # Inheritance Trees
 # * No rule on how deep you can go with classes
+# * For example:
+#   * Working is a type of dog
+#   * Hunting is a type of dog
+#   * Lap is a type of dog
 
 # %% codecell
 class Animal():

@@ -77,7 +77,7 @@ d = Derived(4)
 print(f'Example Variable {d.example_variable}')
 print(f'Derived Variable {d.derived_variable}')
 
-# %% md
+# %% [md]
 # # Recall Aminals, Dogs & Cats
 
 # %% codecell
@@ -98,7 +98,7 @@ class Cat(Animal):
     def sound(self):
         return "Meow"
 
-# %% md
+# %% [md]
 # # Refactor Aminals, Dogs & Cats
 # We want to push the definition of lives into our base class since it 
 # pertains to both cats and dogs (and presumably any animal)

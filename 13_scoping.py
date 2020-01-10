@@ -1,13 +1,11 @@
 # %% [md]
-# # Encapsulation - Instance, Class & Static Methods
-# Private methods are not accessible outside of the class
-
-# %% codecell
-class MyClass():
-    pass
+# # Scoping - Instance, Class & Static Methods
 
 # %% [md]
 # # Instance Methods
+# * A method available to the instance
+# * Has a reference to self
+# * With a reference to self, it has access to the instance state
 
 # %% codecell
 class MyClass():
@@ -72,12 +70,10 @@ class Customer():
 
 # %% codecell
 c1 = Customer('Anne', 'Smith', 30)
-c2 = Customer.fromYearOfBirth('Bonnie', 'Jones', 1980)
-c3 = Customer.fromFullName('Cindy Williams', 50)
+c2 = Customer.fromFullName('Cindy Williams', 50)
 
 c1.output()
 c2.output()
-c3.output()
 
 # %% [md]
 # # Static Methods
@@ -99,3 +95,10 @@ class MyClass():
     @staticmethod
     def staticWork():
         print('Static Method - Work')
+
+# %% codecell
+c = MyClass()
+c.staticWork()
+
+# %% codecell
+MyClass.staticWork()

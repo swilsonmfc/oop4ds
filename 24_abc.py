@@ -29,7 +29,10 @@ vehicle = Vehicle()
 
 # %% [md]
 # # Derived Classes
+# * Car
+# * Airplane
 
+# %% codecell
 class Car(Vehicle):
     
     def move(self):
@@ -99,6 +102,7 @@ class Vehicle(ABC):
 # %% [md]
 # # Derived Classes
 
+# %% codecell
 class Car(Vehicle):
     
     def move(self):

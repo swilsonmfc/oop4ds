@@ -185,6 +185,8 @@ class NeuralNetwork():
 
 # %% [md]
 # # Logging
+            
+# %% codecell
 class CallbackLogging(Callback):
     def beforeEpoch(self, state):
         print(f'-> Before Epoch {state["epoch"] + 1} of {state["epochs"]}')
@@ -206,6 +208,8 @@ ann.train(2,2)
 
 # %% [md]
 # # Callback Loss & Accuracy Tracking 
+
+# %% codecell
 class CallbackMetricTracker(Callback):
     def __init__(self):
         self.losses = []
@@ -231,6 +235,8 @@ print(tracker)
 # # Callback Learning Rate Annealing
 # Most modern frameworks (PyTorch, Keras, TF), hold the learning rate with the optimizer.
 # In this simple net, we're building our network and optimizer in one class.
+
+# %% codecell
 class CallbackLearningRate(Callback):    
     def afterBatch(self, state):
         """

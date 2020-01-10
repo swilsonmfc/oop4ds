@@ -1,11 +1,9 @@
 # %% [md]
 # # Singletons
-# With a singleton, we want exactly one instance of a class created
-# This is typically done so we can manage state in a centralized location
-# An example would of a singleton, may be a logger that manages writing
-# to one or more files.  We want to use the logger from many places and 
-# it's convenient to create an instance of a logger as needed, but implementation-wise
-# we want to logger to be the same instance so we can safely write to the file. 
+# * With a singleton, we want exactly one instance of a class created
+# * This is typically done so we can manage state in a centralized location
+# * An example would of a singleton, may be a logger that manages writing to one or more files.  
+# * We want to use the logger from many places and it's convenient to create an instance of a logger as needed
 
 # %% codecell
 class NotSingleton(object):
@@ -21,13 +19,17 @@ print(ns1 == ns2)
 print(ns1 is ns2)
 
 # %% [md]
+# The == operator compares the values of both the operands and checks for value equality. 
+# Whereas is operator checks whether both the operands refer to the same object or not.
+
+# %% [md]
 # # Dunder __new__
-# The key to creating a singleton, is intercepting the dunder __new__ method.
-# This is called when we want to construct an instance.  If you look at the 
-# signature, it's a class method.  Within the method, we look to see if 
-# an instance of our class exists.  If it does, we return that instance. If it
-# does not, we create an instance of the class, save it in our Singleton class
-# and return the instance.
+# * The key to creating a singleton, is intercepting the dunder __new__ method.
+# * This is called when we want to construct an instance.  
+# * If you look at the signature, it's a class method.  
+# * Within the method, we look to see if an instance of our class exists.  
+# * If it does, we return that instance. 
+# * If it does not, we create an instance of the class, save it in our Singleton class and return the instance.
 
 # %% codecell
 class Singleton(object):
@@ -48,8 +50,9 @@ print(s1 == s2)
 
 # %% [md]
 # # Tracking Handouts
-# A toy example of shared state using a Singleton.  Our need is to track the number of times
-# we hand out a reference.  Note:  we need to take special care of our singleton initialization.
+# * A toy example of shared state using a Singleton.  
+# * Our need is to track the number of times we hand out a reference.  
+# * Note:  we need to take special care of our singleton initialization.
 
 # %% codecell
 class TrackingSingleton(object):
@@ -196,7 +199,9 @@ class LimitedResourceFactory(object):
 # %% codecell
 with LimitedResourceFactory().checkoutItem() as item:
     print('  Doing some work!!!')
+    print('\n')
     LimitedResourceFactory().status()
+    print('\n')
     
 print('After Complete')
 LimitedResourceFactory().status()
