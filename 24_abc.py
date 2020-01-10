@@ -1,6 +1,6 @@
 # %% [md]
 # # Abstract Base Classes
-# Abstract base classes enforce rules in inheritence
+# Abstract base classes enforces rules in inheritence
 
 # %% codecell
 from abc import ABC

@@ -13,10 +13,9 @@
 # Requirements:
 # * Dog is an Animal
 # * Cat is an Animal
-# * All Animals make a sound
 # * Dogs bark
 # * Cats meow
-# * Cats have 9 lives
+# * Cats have 9 lives 
 
 # %% [md]
 # ## Step 1 - Model Relationships
@@ -49,11 +48,7 @@ class Cat(Animal):
 
 # %% codecell
 class Animal():
-    def sound(self):
-        """
-        All animals make a sound.  Each animal's sound is different.
-        """
-        return "Make Sound"
+    pass
 
 class Dog(Animal):
     def sound(self):
@@ -71,13 +66,12 @@ class Cat(Animal):
 
 # %% codecell
 animal = Animal()
-animal.sound()
 
 dog = Dog()
-dog.sound()
+print(dog.sound())
 
 cat = Cat()
-cat.sound()
+print(cat.sound())
 
 # %% [md]
 # ## Step 3 - Model State
@@ -86,10 +80,12 @@ cat.sound()
 
 # %% codecell
 class Animal():
-    def sound(self):
-        pass
+    pass
 
 class Dog(Animal):
+    def __init__(self):
+        self.lives = 1
+        
     def sound(self):
         return "Bark"
 
@@ -108,19 +104,13 @@ dog = Dog()
 print(dog.lives)
 
 # %% [md]
-# # Rethinking Lives
-# Rather than giving lives to cats we could improve this model.
-# We'll use a constructor to help!
-# * Implicitly Animals has one Life
-# * Cats have 9 lives
+# # Inheritance Trees
+# * No rule on how deep you can go with classes
 
 # %% codecell
 class Animal():
     def __init__(self, lives=1):
         self.lives = lives
-
-    def sound(self):
-        pass
 
 class Dog(Animal):
     def __init__(self):
@@ -128,17 +118,19 @@ class Dog(Animal):
 
     def sound(self):
         return "Bark"
+    
+class WorkingDog(Dog):
+    pass
 
-class Cat(Animal):
-    def __init__(self):
-        super().__init__(lives=9)
+class HuntingDog(Dog):
+    pass
 
-    def sound(self):
-        return "Meow"
+class LapDog(Dog):
+    pass
 
 # %% codecell
-cat = Cat()
-print(cat.lives)
+pebbles = LapDog()
+print(pebbles.sound())
+print(pebbles.lives)
 
-dog = Dog()
-print(dog.lives)
+

@@ -49,7 +49,7 @@ print(s1 == s2)
 # %% [md]
 # # Tracking Handouts
 # A toy example of shared state using a Singleton.  Our need is to track the number of times
-# we hand out a reference.  
+# we hand out a reference.  Note:  we need to take special care of our singleton initialization.
 
 # %% codecell
 class TrackingSingleton(object):
@@ -81,6 +81,7 @@ print(ts2.handedOut())
     
 # %% [md]
 # # Enforcing Maximum Handouts
+# We have state in our instance class that we need to run exactly once
 
 # %% codecell
 class MaxHandoutSingleton(object):
@@ -89,11 +90,16 @@ class MaxHandoutSingleton(object):
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
             cls._instance = object.__new__(cls, *args, **kwargs)
+            
+            # Setup our instance state on max handouts & current handouts
+            cls._instance._handouts = 0
+            cls._instance._max = 3
+        
         return cls._instance
     
     def __init__(self):
-        self._handouts = 0
-        self._max = 3
+        # Runs on every construction
+        pass
     
     def handout(self):
         if self._handouts == self._max:
@@ -108,12 +114,16 @@ class MaxHandoutSingleton(object):
         return self._handouts
 
 # %% codecell
-maxer._handouts = 0
 maxer = MaxHandoutSingleton()  
-h1 = maxer.handout(); print(maxer.handedOut())
-h2 = maxer.handout(); print(maxer.handedOut())
-h3 = maxer.handout(); print(maxer.handedOut())
-h4 = maxer.handout()
+maxer.handout(); print(maxer.handedOut())
+maxer.handout(); print(maxer.handedOut())
+maxer.handout(); print(maxer.handedOut())
+maxer.handout()
+
+# %% codecell
+maxer.turnin()
+maxer.turnin()
+print(maxer.handedOut())
     
 # %% [md]
 # # Singleton Factory
@@ -189,4 +199,12 @@ with LimitedResourceFactory().checkoutItem() as item:
     LimitedResourceFactory().status()
     
 print('After Complete')
+LimitedResourceFactory().status()
+
+# %% codecell
+item = LimitedResourceFactory().checkoutItem()
+print('Doing more work!!!')
+LimitedResourceFactory().status()
+print('Returning Item')
+LimitedResourceFactory().returnItem(item)
 LimitedResourceFactory().status()

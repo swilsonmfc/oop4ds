@@ -5,8 +5,6 @@
 # * Is A  = Inheritance
 # * Has A = Composition
 #
-# We model inheritance with classes and base classes.
-
 # %% [md]
 # # Example
 # Requirements:

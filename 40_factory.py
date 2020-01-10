@@ -28,7 +28,7 @@ class Version(ABC):
         pass
     
 class Reader():
-    def __init__(loader:Loader, version:Version):
+    def __init__(self, loader:Loader, version:Version):
         self.loader = loader
         self.version = version
         

@@ -1,16 +1,7 @@
 # %% [md]
-# # Dunder methods
-# Start with a double underscore
-
-# %% [md]
 # # Constructors
-# There are two methods invoked when you create an object.
-# * __new__ 
-# * __init__
-# New creates an object in memory and init gives you an opportunity to initiatize
-# The object before handing it to a client.  It is relatively uncommon to override
-# New, but there are some patterns that can take advantage of this 2 method contruction.
-
+# When we construct an object we initialize our class
+# with the dunder init (__init__) method. 
 
 # %% codecell
 class Example():
@@ -85,3 +76,59 @@ class Derived(Example):
 d = Derived(4)
 print(f'Example Variable {d.example_variable}')
 print(f'Derived Variable {d.derived_variable}')
+
+# %% md
+# # Recall Aminals, Dogs & Cats
+
+# %% codecell
+class Animal():
+    pass
+
+class Dog(Animal):
+    def __init__(self):
+        self.lives = 1
+        
+    def sound(self):
+        return "Bark"
+
+class Cat(Animal):
+    def __init__(self):
+        self.lives = 9
+
+    def sound(self):
+        return "Meow"
+
+# %% md
+# # Refactor Aminals, Dogs & Cats
+# We want to push the definition of lives into our base class since it 
+# pertains to both cats and dogs (and presumably any animal)
+
+
+# %% codecell
+class Animal():
+    def __init__(self, lives=1):
+        self.lives = lives
+
+class Dog(Animal):
+    def __init__(self):
+        super().__init__(lives=1)
+        
+    def sound(self):
+        return "Bark"
+
+class Cat(Animal):
+    def __init__(self):
+        super().__init__(lives=9)
+
+    def sound(self):
+        return "Meow"
+
+# %% codecell
+animal = Animal()
+print(animal.lives)
+
+dog = Dog()
+print(dog.lives)
+
+cat = Cat()
+print(cat.lives)

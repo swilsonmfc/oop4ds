@@ -1,4 +1,25 @@
 # %% [md]
+
+# %% [md]
+# # Constructors
+# There are two methods invoked when you create an object.
+# * __new__ 
+# * __init__
+# New creates an object in memory and init gives you an opportunity to initiatize
+# The object before handing it to a client.  It is relatively uncommon to override
+# New, but there are some patterns that can take advantage of this 2 method contruction.
+# Far more often, you will implement __init__.
+
+# %% codecell
+class Example():
+    def __init__(self):
+        print('Running init')
+        self.some_variable = 1
+
+# %% codecell
+e = Example()
+print(f'Value {e.some_variable}')
+
 # # Dunders
 # In addition to constructors and initialization (__init__)
 # Dunders control several aspects of objects.
